@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panama Travelers Agency - Discover Kenya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #0e7490;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #0e7490;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #0891b2;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #0e7490;
+            color: #0e7490;
+        }
+
+        .btn-outline:hover {
+            background-color: #f0f9ff;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0e7490;
+            text-decoration: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar-menu a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s;
+        }
+
+        .navbar-menu a:hover {
+            color: #0e7490;
+            background-color: #f0f9ff;
+        }
+
+        .navbar-menu a.active {
+            color: #0e7490;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4b5563;
+        }
+
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+            background-color: white;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 0.25rem;
+        }
+
+        .mobile-menu a:hover {
+            color: #0e7490;
+            background-color: #f0f9ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image-container {
+            position: relative;
+            height: 200px;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            color: #0e7490;
+            text-decoration: none;
+            margin-top: auto;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: 1fr;
+        }
+
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* Lists */
+        .list-decimal {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .list-disc {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .list-item {
+            margin-bottom: 0.5rem;
+            font-size: 1.125rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+        }
+
+        th {
+            background-color: #0e7490;
+            color: white;
+            text-align: left;
+            padding: 0.75rem 1rem;
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        /* Forms */
+        .form-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #0e7490;
+            box-shadow: 0 0 0 3px rgba(14, 116, 144, 0.1);
+        }
+
+        .form-error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .form-success {
+            background-color: #ecfdf5;
+            color: #047857;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            color: #d1d5db;
+            font-size: 1.25rem;
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: white;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: #d1d5db;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Destination Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .close-modal:hover {
+            color: #111827;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 0.375rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background-color: #0e7490;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Team Section */
+        .team-card {
+            text-align: center;
+        }
+
+        .team-image {
+            height: 250px;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-position {
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        /* About Page */
+        .about-image {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contact Page */
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            color: #0e7490;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Page Specific Styles */
+        #home-page, #services-page, #about-page, #contact-page, #login-page {
+            display: none;
+        }
+
+        #home-page.active, #services-page.active, #about-page.active, #contact-page.active, #login-page.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+
+            .grid-cols-3, .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="navbar-logo" onclick="showPage('home-page')">Panama Travelers Agency</a>
+            <div class="navbar-menu">
+                <a href="#" onclick="showPage('home-page')" id="home-link" class="active">Home</a>
+                <a href="#" onclick="showPage('services-page')" id="services-link">Services</a>
+                <a href="#" onclick="showPage('about-page')" id="about-link">About</a>
+                <a href="#" onclick="showPage('contact-page')" id="contact-link">Contact</a>
+                <a href="#" onclick="showPage('login-page')" id="login-link" class="btn btn-outline">Login</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                ☰
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#" onclick="showPage('home-page'); toggleMobileMenu()">Home</a>
+            <a href="#" onclick="showPage('services-page'); toggleMobileMenu()">Services</a>
+            <a href="#" onclick="showPage('about-page'); toggleMobileMenu()">About</a>
+            <a href="#" onclick="showPage('contact-page'); toggleMobileMenu()">Contact</a>
+            <a href="#" onclick="showPage('login-page'); toggleMobileMenu()">Login</a>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home-page" class="active">
+        <!-- Hero Section -->
+        <section class="hero">
+             <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=500&q=80" alt="Exotic beach destination with crystal clear waters and palm trees" class="hero-image">
+            <h1 class="hero-title">Welcome to Panama Travelers Agency</h1>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Discover Kenya with Panama Travelers Agency</h1>
+                <p>Your journey to unforgettable destinations begins here</p>
+                <a href="#" onclick="showPage('services-page')" class="btn">Explore Destinations</a>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container">
+            <!-- About Kenya -->
+            <section class="section">
+                <h2 class="section-title">Welcome to Kenya</h2>
+                <div class="grid grid-cols-2">
+                    <div>
+                        <p>Kenya is a country of dramatic extremes and classic contrasts. Deserts and alpine snows; forests and open plains; the metropolis of Nairobi and colorful tribal cultures; freshwater lakes and coral reefs.</p>
+                        <p>For many people, Kenya is East Africa, and it's true that this is one of the most diverse, rewarding destinations in Africa. Kenya offers the visitor a chance to experience a natural world unchanged by the passage of time.</p>
+                        <p>The Kenyan wilderness is home to an endless array of ecosystems, the staging ground for natural cycles of life, death and regeneration as old as the planet itself.</p>
+                        <p>This is a land of endless potential for the wildlife enthusiast. From the highlands to the coast, Kenya provides a range of environments for a diverse range of wildlife.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Kenya wildlife" style="width: 100%; height: auto; border-radius: 0.5rem;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Travel Tips -->
+            <section class="section">
+                <h2 class="section-title">Travel Tips for Kenya</h2>
+                <ul class="list-disc">
+                    <li class="list-item">Always carry cash as many local vendors don't accept credit cards</li>
+                    <li class="list-item">Respect local customs and dress modestly when visiting traditional communities</li>
+                    <li class="list-item">Stay hydrated and use sunscreen, as the equatorial sun can be intense</li>
+                    <li class="list-item">Learn a few basic Swahili phrases to enhance your experience with locals</li>
+                    <li class="list-item">Book accommodations and safaris in advance during peak season (July-September)</li>
+                </ul>
+            </section>
+<!-- Travel Packages -->
+<section class="section">
+    <h2 class="section-title">UPCOMING OFFERS FOR APRIL HOLIDAY</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Package Name</th>
+                    <th>Price</th>
+                    <th>Duration</th>
+                    <th>Inclusions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Kenyan Safari Adventure</strong></td>
+                    <td>$199(ksh25,000) </td>
+                    <td> 7 days</td>
+                    <td>Flights first class, 4-star lodges, meals, game drives, park fees</td>
+                </tr>
+                <tr>
+                    <td><strong>Coastal Kenya Escape</strong></td>
+                    <td>$299 (ksh50,000)</td>
+                    <td> 14days</td>
+                    <td> private flight , 5-star beach resort, breakfast, 3 excursions</td>
+                </tr>
+                <tr>
+                    <td><strong>Kenya Cultural Immersion</strong></td>
+                    <td>$599(ksh78,000)</td>
+                    <td>14 days</td>
+                    <td>Flights, mixed accommodations, most meals, cultural experiences</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+            <!-- Booking Form -->
+            <section class="section">
+                <h2 class="section-title">Book Your Dream Vacation</h2>
+                <div class="form-container">
+                    <div id="booking-success" class="form-success" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>Thank you for your booking request! We will contact you shortly to confirm your reservation.</span>
+                    </div>
+                    <form id="booking-form" onsubmit="return validateBookingForm(event)">
+                        <div class="grid grid-cols-2">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+                                <div id="email-error" class="form-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1234567890" required>
+                                <div id="phone-error" class="form-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="destination" class="form-label">Select Destination</label>
+                                <select id="destination" name="destination" class="form-select" required>
+                                    <option value="" disabled selected>Choose a destination</option>
+                                    <option value="maasai-mara">Maasai Mara National Reserve</option>
+                                    <option value="diani-beach">Diani Beach</option>
+                                    <option value="mount-kenya">Mount Kenya</option>
+                                    <option value="amboseli">Amboseli National Park</option>
+                                    <option value="lamu">Lamu Island</option>
+                                    <option value="lake-nakuru">Lake Nakuru National Park</option>
+                                    <option value="nairobi-park">Nairobi National Park</option>
+                                    <option value="hells-gate">Hell's Gate National Park</option>
+                                    <option value="samburu">Samburu National Reserve</option>
+                                    <option value="watamu">Watamu Marine National Park</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="departure-date" class="form-label">Departure Date</label>
+                                <input type="date" id="departure-date" name="departure-date" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="travelers" class="form-label">Number of Travelers</label>
+                                <input type="number" id="travelers" name="travelers" class="form-input" min="1" max="20" value="1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comments" class="form-label">Additional Comments</label>
+                            <textarea id="comments" name="comments" class="form-textarea" rows="4" placeholder="Tell us about any special requirements or questions you have..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Book Now</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Services Page -->
+    <div id="services-page">
+        <!-- Hero Section -->
+        <section class="hero" style="height: 300px;">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=300&q=80" alt="Various travel destinations in Kenya" class="hero-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>10 Best Places to Visit in Kenya</h1>
+                <p>Explore the most breathtaking destinations Kenya has to offer</p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container">
+            <!-- Kenya Destinations -->
+            <section class="section">
+                <div class="grid grid-cols-3" id="destinations-grid">
+                    <!-- Destination cards will be populated by JavaScript -->
+                </div>
+            </section>
+            
+            <section class="section" style="text-align: center;">
+                <h2 class="section-title">Ready to Book Your Next Adventure?</h2>
+                <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 2rem;">Contact our travel experts today to plan your perfect getaway to any of Kenya's exotic destinations.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="btn" onclick="showPage('home-page')">Book Now</a>
+                    <a href="#" class="btn btn-outline" onclick="showPage('contact-page')">Contact Us</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about-page">
+        <!-- Hero Section -->
+        <section class="hero" style="height: 300px;">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.JcOcNYl-a10z6IQ1BcJ0gQHaE-&pid=Api" alt="Kenya Airways Boeing 787-8 Dreamliner" class="hero-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>About Panama Travelers Agency</h1>
+                <p>Your trusted partner for unforgettable travel experiences</p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container">
+            <!-- Our Story -->
+            <section class="section">
+                <div class="grid grid-cols-2" style="align-items: center; gap: 3rem;">
+                    <div>
+                        <h2>Our Story</h2>
+                        <p>
+                            Founded in 2010, Panama Travelers Agency began with a simple mission: to help travelers discover Kenya's most beautiful destinations while providing exceptional service and value.
+                        </p>
+                        <p>
+                            What started as a small office in Nairobi with just three travel enthusiasts has grown into one of Kenya's premier travel agencies, serving thousands of satisfied customers each year.
+                        </p>
+                        <p>
+                            Our team of experienced travel consultants is passionate about creating personalized travel experiences that exceed our clients' expectations. We believe that travel should be transformative, enriching, and above all, enjoyable.
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://cdn.tourradar.com/s3/serp/original/213577_J4XXfFM7.png" alt="Panama Travelers Agency office and team">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us -->
+            <section class="section">
+                <h2 class="section-title">Why Choose Panama Travelers Agency?</h2>
+                <div class="grid grid-cols-3">
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="color: #0e7490; font-size: 3rem; margin-bottom: 1rem; text-align: center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="card-title" style="text-align: center;">Trusted Expertise</h3>
+                            <p class="card-text">With over 15 years of experience in the travel industry, our knowledgeable team ensures every detail of your trip is perfectly planned.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="color: #0e7490; font-size: 3rem; margin-bottom: 1rem; text-align: center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="card-title" style="text-align: center;">Unbeatable Value</h3>
+                            <p class="card-text">We negotiate the best rates with our partners to offer you competitive prices without compromising on quality or service.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="color: #0e7490; font-size: 3rem; margin-bottom: 1rem; text-align: center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="card-title" style="text-align: center;">Personalized Service</h3>
+                            <p class="card-text">We take the time to understand your preferences and create customized travel experiences tailored to your specific needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+ <!-- Meet Our Team -->
+<section class="section">
+    <h2 class="section-title">Meet Our Team</h2>
+    <div class="grid grid-cols-4">
+        <!-- Team Member 1 -->
+        <div class="team-card">
+            <div class="team-image">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.evE2MS2G2X2TVFSlcuulgAHaIL&pid=Api" alt="Abel Mutua - Founder & CEO">
+            </div>
+            <h3 class="team-name">Abel Mutua</h3>
+            <p class="team-position">Founder & CEO</p>
+            <p class="card-text">Travel enthusiast with over 20 years of experience and has visited 75 countries.</p>
+        </div>
+        
+        <!-- Team Member 2 -->
+        <div class="team-card">
+            <div class="team-image">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.gEU7i3K0fEmKnhKyPGYbuAHaJQ&pid=Api" alt="Nikita Kering - Head of Operations">
+            </div>
+            <h3 class="team-name">Nikita Kering</h3>
+            <p class="team-position">Head of Operations</p>
+            <p class="card-text">Ensures smooth operations and exceptional service delivery for all our clients.</p>
+        </div>
+        
+        <!-- Team Member 3 -->
+        <div class="team-card">
+            <div class="team-image">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.4Zf70GJYb7GzfuNR5DSkRAHaI8&pid=Api" alt="Njugush - Senior Travel Consultant">
+            </div>
+            <h3 class="team-name">Njugush</h3>
+            <p class="team-position">Senior Travel Consultant</p>
+            <p class="card-text">Specializes in luxury travel and safari packages to Kenya's most exotic destinations.</p>
+        </div>
+        
+        <!-- Team Member 4 -->
+        <div class="team-card">
+            <div class="team-image">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.h9hAPu9BbOqWfr8uJdLTIgHaJQ&pid=Api" alt="Amber Ray - Marketing Director">
+            </div>
+            <h3 class="team-name">Amber Ray</h3>
+            <p class="team-position">Marketing Director</p>
+            <p class="card-text">Creates engaging content and promotions to showcase Kenya's amazing destinations.</p>
+        </div>
+    </div>
+</section>
+
+            
+            <!-- Mission & Values -->
+            <section class="section">
+                <div style="background-color: #f9fafb; padding: 2rem; border-radius: 0.5rem;">
+                    <h2 class="section-title">Our Mission & Values</h2>
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <h3>Our Mission</h3>
+                            <p>To inspire and enable people to explore Kenya, creating memorable travel experiences through exceptional service, expertise, and value.</p>
+                            <p>We strive to make travel accessible, enjoyable, and transformative for all our clients, whether they're seasoned travelers or embarking on their first African adventure.</p>
+                        </div>
+                        
+                        <div>
+                            <h3>Our Values</h3>
+                            <ul class="list-disc">
+                                <li><strong>Excellence</strong> - We are committed to providing the highest quality service in everything we do.</li>
+                                <li><strong>Integrity</strong> - We operate with honesty, transparency, and ethical business practices.</li>
+                                <li><strong>Innovation</strong> - We continuously seek new ways to enhance our clients' travel experiences.</li>
+                                <li><strong>Passion</strong> - We are passionate about travel and sharing Kenya's wonders with our clients.</li>
+                                <li><strong>Responsibility</strong> - We promote sustainable and responsible tourism practices.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page">
+        <!-- Hero Section -->
+        <section class="hero" style="height: 300px;">
+            <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=300&q=80" alt="Customer service representative with headset" class="hero-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p>We're here to help plan your perfect getaway</p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container">
+            <div class="section">
+                <div class="grid grid-cols-2">
+                    <div>
+                        <h2>Get in Touch</h2>
+                        <p>Have questions about our travel packages or need help planning your next adventure? Our team of travel experts is ready to assist you. Fill out the form, and we'll get back to you as soon as possible.</p>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Our Office</h3>
+                                    <p>
+                                        123 Travel Street<br>
+                                        Nairobi, Kenya<br>
+                                        00100
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Phone</h3>
+                                    <p>
+                                        +254 123 456 789<br>
+                                        +254 987 654 321
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Email</h3>
+                                    <p>
+                                        info@panamatravelers.com<br>
+                                        bookings@panamatravelers.com
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Business Hours</h3>
+                                    <p>
+                                        Monday - Friday: 8:00 AM - 6:00 PM<br>
+                                        Saturday: 9:00 AM - 4:00 PM<br>
+                                        Sunday: Closed
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-container">
+                        <h2>Send Us a Message</h2>
+                        <form id="contact-form" onsubmit="return validateContactForm(event)">
+                            <div class="grid grid-cols-2">
+                                <div class="form-group">
+                                    <label for="contact-name" class="form-label">Full Name</label>
+                                    <input type="text" id="contact-name" name="contact-name" class="form-input" placeholder="John Doe" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact-email" class="form-label">Email Address</label>
+                                    <input type="email" id="contact-email" name="contact-email" class="form-input" placeholder="john@example.com" required>
+                                    <div id="contact-email-error" class="form-error"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-subject" class="form-label">Subject</label>
+                                <input type="text" id="contact-subject" name="contact-subject" class="form-input" placeholder="Inquiry about Kenya safari packages" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-message" class="form-label">Message</label>
+                                <textarea id="contact-message" name="contact-message" class="form-textarea" rows="6" placeholder="Please provide details about your travel plans, questions, or special requirements..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <section class="section">
+                <h2 class="section-title">Find Us</h2>
+                <div class="map-container">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69c07a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=400&q=80" alt="Map location of Panama Travelers Agency office">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page">
+        <div style="min-height: calc(100vh - 4rem); display: flex; align-items: center; justify-content: center; padding: 2rem; background-color: #f9fafb;">
+            <div style="max-width: 900px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); border-radius: 0.75rem; overflow: hidden;">
+                <div style="position: relative; display: none;" class="login-image">
+                    <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=600&q=80" alt="Tropical beach destination" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="position: absolute; inset: 0; background-color: rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; padding: 2rem; text-align: center;">
+                        <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem;">Welcome Back</h2>
+                        <p>Log in to access your account and manage your travel bookings</p>
+                    </div>
+                </div>
+                <div style="background-color: white; padding: 2rem;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h1 style="font-size: 1.5rem; font-weight: 700; color: #0e7490;">Panama Travelers Agency</h1>
+                        <p style="color: #6b7280;">Sign in to your account</p>
+                    </div>
+                    
+                    <form id="login-form" onsubmit="return validateLoginForm(event)">
+                        <div class="form-group">
+                            <label for="login-email" class="form-label">Email Address</label>
+                            <input type="email" id="login-email" name="login-email" class="form-input" placeholder="john@example.com" required>
+                            <div id="login-email-error" class="form-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                <label for="login-password" class="form-label" style="margin-bottom: 0;">Password</label>
+                                <a href="#" style="font-size: 0.875rem; color: #0e7490; text-decoration: none;">Forgot password?</a>
+                            </div>
+                            <div style="position: relative;">
+                                <input type="password" id="login-password" name="login-password" class="form-input" placeholder="••••••••" required>
+                                <button type="button" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: #6b7280; cursor: pointer;" onclick="togglePasswordVisibility()">
+                                    <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg id="eye-off-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                        <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"></path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <input type="checkbox" id="remember-me" name="remember-me" style="width: 1rem; height: 1rem;">
+                                <label for="remember-me" style="font-size: 0.875rem; font-weight: 400;">Remember me for 30 days</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Sign In</button>
+                        
+                        <div style="text-align: center; font-size: 0.875rem; color: #6b7280; margin-top: 1.5rem;">
+                            Don't have an account? <a href="#" style="color: #0e7490; text-decoration: none;">Sign up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Destination Modal -->
+    <div id="destination-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="/placeholder.svg" alt="" class="modal-image">
+            <h2 id="modal-title" class="card-title"></h2>
+            <div id="modal-price" class="price-tag"></div>
+            <p id="modal-description" class="card-text"></p>
+            <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #0e7490;">Why Visit:</h3>
+                <p id="modal-reason" class="card-text"></p>
+            </div>
+            <button class="btn" style="margin-top: 1rem;" onclick="showPage('home-page'); closeModal()">Book This Destination</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">Panama Travelers Agency</h3>
+                    <p class="footer-text">Your trusted partner for unforgettable travel experiences since 2010.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('home-page')">Home</a></li>
+                        <li><a href="#" onclick="showPage('services-page')">Services</a></li>
+                        <li><a href="#" onclick="showPage('about-page')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('contact-page')">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Popular Destinations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('services-page')">Maasai Mara</a></li>
+                        <li><a href="#" onclick="showPage('services-page')">Diani Beach</a></li>
+                        <li><a href="#" onclick="showPage('services-page')">Mount Kenya</a></li>
+                        <li><a href="#" onclick="showPage('services-page')">Amboseli National Park</a></li>
+                        <li><a href="#" onclick="showPage('services-page')">Lamu Island</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Contact Us</h3>
+                    <div class="footer-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21   stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>123 Travel Street, Nairobi, Kenya</span>
+                    </div>
+                    <div class="footer-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                        </svg>
+                        <span>+254 123 456 789</span>
+                    </div>
+                    <div class="footer-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>info@panamatravelers.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Panama Travelers Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Kenya destinations data
+        const destinations = [
+    {
+        id: 1,
+        name: "Maasai Mara National Reserve",
+        image: "https://tse3.mm.bing.net/th?id=OIP.w0lfNX9l9OFgCJ469cnuggHaEK&pid=Api",
+        description: "Famous for the annual wildebeest migration, the Maasai Mara offers incredible wildlife viewing opportunities with lions, elephants, giraffes, and more in their natural habitat.",
+        reason: "Visit for the spectacular Great Migration (July-October), where millions of wildebeest cross the Mara River, and for the chance to see the Big Five in one location.",
+        price: "$56/Ksh 6,000"
+    },
+    {
+        id: 2,
+        name: "Diani Beach",
+        image: "https://tse4.mm.bing.net/th?id=OIP.YI78AOWG9COMx67oiSAp4AHaE8&pid=Api",
+        description: "A stunning white sand beach along Kenya's coast with crystal clear turquoise waters, perfect for swimming, snorkeling, and water sports.",
+        reason: "Visit for the pristine beaches, vibrant coral reefs for snorkeling and diving, and the relaxed coastal atmosphere with excellent seafood restaurants.",
+        price: "$70/Ksh 7,500"
+    },
+    {
+        id: 3,
+        name: "Mount Kenya",
+        image: "https://tse3.mm.bing.net/th?id=OIP.m6WrjPUMQUOuSi28cnyjEAHaEv&pid=Api",
+        description: "Africa's second-highest mountain offers breathtaking scenery, diverse wildlife, and challenging hiking trails for adventurous travelers.",
+        reason: "Visit for the challenging trek to Point Lenana (the most accessible peak), stunning alpine scenery, and the chance to see unique high-altitude wildlife and vegetation.",
+        price: "$124/Ksh 13,500"
+    },
+    {
+        id: 4,
+        name: "Amboseli National Park",
+        image: "https://tse4.mm.bing.net/th?id=OIP.-yWKAGSguKWFwwRaOGK7wwHaEK&pid=Api",
+        description: "Known for its large elephant herds and spectacular views of Mount Kilimanjaro across the border in Tanzania.",
+        reason: "Visit for the iconic views of elephants with Mt. Kilimanjaro as a backdrop, excellent bird watching opportunities, and the chance to meet Maasai communities.",
+        price: "$90/Ksh 9,500"
+    },
+    {
+        id: 5,
+        name: "Lamu Island",
+        image: "https://tse1.mm.bing.net/th?id=OIP.N_-nHhuorzDxhfMnaZwQaQHaE6&pid=Api",
+        description: "A UNESCO World Heritage site with well-preserved Swahili architecture, narrow winding streets, and a rich cultural heritage.",
+        reason: "Visit for the car-free old town with donkeys as transportation, traditional Swahili architecture, dhow sailing experiences, and the authentic coastal culture.",
+        price: "$78/Ksh 8,500"
+    },
+    {
+        id: 6,
+        name: "Lake Nakuru National Park",
+        image: "https://tse1.mm.bing.net/th?id=OIP.NT4RnJgPMzwyIBplx3sqagHaE8&pid=Api",
+        description: "Famous for its flamingo-lined shores and diverse wildlife including rhinos, lions, and giraffes.",
+        reason: "Visit for the spectacular pink flamingo flocks (seasonal), the opportunity to see both black and white rhinos, and the beautiful lake views from Baboon Cliff.",
+        price: "$200/Ksh 21,500"
+    },
+    {
+        id: 7,
+        name: "Nairobi National Park",
+        image: "https://tse4.mm.bing.net/th?id=OIP.vr8ZL2k5OWmmlWbvT1w30AHaE8&pid=Api",
+        description: "The only national park in the world located within a capital city, offering wildlife viewing against a backdrop of city skyscrapers.",
+        reason: "Visit for the unique experience of seeing lions, giraffes, and rhinos with Nairobi's skyline in the background, and its convenient location just minutes from the city center.",
+        price: "$12/Ksh 1,300"
+    },
+    {
+        id: 8,
+        name: "Hell's Gate National Park",
+        image: "https://tse2.mm.bing.net/th?id=OIP.UI6kkko5pAIGu5rugtaeDAHaE8&pid=Api",
+        description: "A unique park where visitors can walk or cycle among wildlife, with dramatic gorges, cliffs, and geothermal features.",
+        reason: "Visit for the rare opportunity to hike or cycle among zebras and giraffes, explore the dramatic gorge that inspired 'The Lion King', and experience natural hot springs and geysers.",
+        price: "$100/Ksh 11,000"
+    },
+    {
+        id: 9,
+        name: "Samburu National Reserve",
+        image: "https://tse4.mm.bing.net/th?id=OIP.A2zHFdila9B7RKUysZ2GfgHaEx&pid=Api",
+        description: "A rugged, semi-desert park in northern Kenya home to unique wildlife species not found in southern parks.",
+        reason: "Visit for the 'Samburu Special Five' (Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk, and beisa oryx), the beautiful Ewaso Nyiro River, and authentic cultural experiences with Samburu people.",
+        price: "$150/Ksh 16,000"
+    },
+    {
+        id: 10,
+        name: "Watamu Marine National Park",
+        image: "https://tse4.mm.bing.net/th?id=OIP.JwQeO1dKEWcwT72fFlYOhAHaFj&pid=Api",
+        description: "A protected marine park with pristine beaches, coral gardens, and rich marine life including sea turtles and colorful fish.",
+        reason: "Visit for world-class snorkeling and diving among vibrant coral reefs, turtle watching and conservation programs, and the relaxed beach town atmosphere with excellent seafood.",
+        price: "$660/Ksh 71,500"
+    }
+];
+
+        // Populate destinations grid
+        function populateDestinations() {
+            const destinationsGrid = document.getElementById('destinations-grid');
+            destinationsGrid.innerHTML = '';
+            
+            destinations.forEach(destination => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-image-container">
+                        <img src="${destination.image}" alt="${destination.name}" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${destination.name}</h3>
+                        <p class="card-text">${destination.description}</p>
+                        <a href="#" class="btn" onclick="openDestinationModal(${destination.id}); return false;">Learn More</a>
+                    </div>
+                `;
+                destinationsGrid.appendChild(card);
+            });
+        }
+
+        // Initialize destinations on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            populateDestinations();
+        })
+
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('#home-page, #services-page, #about-page, #contact-page, #login-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active link
+            document.querySelectorAll('#home-link, #services-link, #about-link, #contact-link, #login-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const linkId = pageId.replace('page', 'link');
+            const activeLink = document.getElementById(linkId);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Password visibility toggle
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('login-password');
+            const eyeIcon = document.getElementById('eye-icon');
+            const eyeOffIcon = document.getElementById('eye-off-icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.style.display = 'none';
+                eyeOffIcon.style.display = 'block';
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.style.display = 'block';
+                eyeOffIcon.style.display = 'none';
+            }
+        }
+
+        // Destination modal functions
+        function openDestinationModal(destinationId) {
+            const destination = destinations.find(d => d.id === destinationId);
+            if (!destination) return;
+            
+            document.getElementById('modal-image').src = destination.image;
+            document.getElementById('modal-image').alt = destination.name;
+            document.getElementById('modal-title').textContent = destination.name;
+            document.getElementById('modal-description').textContent = destination.description;
+            document.getElementById('modal-reason').textContent = destination.reason;
+            document.getElementById('modal-price').textContent = `Starting from ${destination.price}`;
+            
+            document.getElementById('destination-modal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('destination-modal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('destination-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Booking form validation
+        function validateBookingForm(event) {
+            event.preventDefault();
+            
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const emailError = document.getElementById('email-error');
+            const phoneError = document.getElementById('phone-error');
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isEmailValid = emailRegex.test(emailInput.value);
+            
+            // Validate phone
+            const phoneRegex = /^\+?[0-9]{10,15}$/;
+            const isPhoneValid = phoneRegex.test(phoneInput.value);
+            
+            // Clear previous errors
+            emailError.textContent = '';
+            phoneError.textContent = '';
+            
+            // Show errors if any
+            if (!isEmailValid) {
+                emailError.textContent = 'Please enter a valid email address';
+            }
+            
+            if (!isPhoneValid) {
+                phoneError.textContent = 'Please enter a valid phone number';
+            }
+            
+            // If all valid, show success message
+            if (isEmailValid && isPhoneValid) {
+                document.getElementById('booking-success').style.display = 'flex';
+                document.getElementById('booking-form').reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('booking-success').style.display = 'none';
+                }, 5000);
+                
+                return true;
+            }
+            
+            return false;
+        }
+
+        // Contact form validation
+        function validateContactForm(event) {
+            event.preventDefault();
+            
+            const emailInput = document.getElementById('contact-email');
+            const emailError = document.getElementById('contact-email-error');
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isEmailValid = emailRegex.test(emailInput.value);
+            
+            // Clear previous errors
+            emailError.textContent = '';
+            
+            // Show errors if any
+            if (!isEmailValid) {
+                emailError.textContent = 'Please enter a valid email address';
+                return false;
+            }
+            
+            // If valid, submit form (in a real application, this would send data to a server)
+            alert('Thank you for your message! We will get back to you shortly.');
+            document.getElementById('contact-form').reset();
+            
+            return true;
+        }
+
+        // Login form validation
+        function validateLoginForm(event) {
+            event.preventDefault();
+            
+            const emailInput = document.getElementById('login-email');
+            const emailError = document.getElementById('login-email-error');
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isEmailValid = emailRegex.test(emailInput.value);
+            
+            // Clear previous errors
+            emailError.textContent = '';
+            
+            // Show errors if any
+            if (!isEmailValid) {
+                emailError.textContent = 'Please enter a valid email address';
+                return false;
+            }
+            
+            // If valid, submit form (in a real application, this would authenticate the user)
+            alert('Login successful!');
+            
+            return true;
+        }
+    </script>
+</body>
+</html> 
